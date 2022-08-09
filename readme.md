@@ -1,7 +1,7 @@
 ## Bookline Assignment 
 
-|task  |Task 1 |Task 2| Task3|
-|------|-------|----- |----|
+|task  |Task 1 |Task 2| Task3|Task4
+|------|-------|----- |----|----|
 |description| Added user with hashed password| Add Student | Add Class information| Get Score of class|
 |method|`POST`                               | `POST`| `POST`| `POST`|
 |endpoint| `/user/adduser`                   | `/student/addstudent`|`/class/addclass`|`/class/getScore`|
