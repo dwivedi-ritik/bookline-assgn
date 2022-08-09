@@ -14,7 +14,7 @@ router.post("/addclass", async (req, res) => {
     let classStructure = {
         class_id: classId,
         year: body[classId].Year,
-        class_techer: body[classId].Class_techer,
+        class_teacher: body[classId].Class_teacher,
         subject_list: body[classId].Subject_list
     }
     let allStudentOfClass = []
@@ -52,13 +52,9 @@ router.post("/addclass", async (req, res) => {
     }
 
     for (let obj of classStudentQueue) {
-        if (!await RollNoStudent.exists({ roll_id: obj.roll_id })) {
-            const newClassStudent = new RollNoStudent(obj)
-            const addStudentOfClass = await newClassStudent.save()
-            allStudentOfClass.push(addStudentOfClass)
-        } else {
-            allStudentOfClass.push(await RollNoStudent.findOne({ roll_id: obj.roll_id }))
-        }
+        const newClassStudent = new RollNoStudent(obj)
+        const addStudentOfClass = await newClassStudent.save()
+        allStudentOfClass.push(addStudentOfClass)
     }
 
     classStructure.students = allStudentOfClass
